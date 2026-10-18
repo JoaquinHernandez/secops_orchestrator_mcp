@@ -22,3 +22,27 @@ A local reasoning model acts as the decision engine in the middle, evaluating th
    ```bash
    git clone [https://github.com/JoaquinHernandez/secops-orchestrator-mcp.git](https://github.com/JoaquinHernandez/secops-orchestrator-mcp.git)
    cd secops-orchestrator-mcp
+Install dependencies:
+
+Bash
+pip install -r requirements.txt
+Configure your paths:
+Update the args array inside secops_orchestrator.py to point to the absolute build paths of your local MCP Node.js servers.
+
+Usage
+Run the orchestrator daemon to begin polling for critical alerts and executing autonomous triage:
+
+Bash
+python secops_orchestrator.py
+Security & Safeguards
+By default, the orchestrator is designed to integrate with illumio-flow-ops in a Draft state. It will stage the quarantine policies for human review in the PCE rather than auto-provisioning them, preventing runaway network isolation.
+
+
+To get this live on your profile, just run:
+```bash
+git init
+git add .
+git commit -m "Initial commit: SecOps MCP Orchestrator daemon"
+git branch -M main
+git remote add origin https://github.com/JoaquinHernandez/secops-orchestrator-mcp.git
+git push -u origin main
